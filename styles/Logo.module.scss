@@ -1,0 +1,58 @@
+//built-in sassy css importations
+@use "sass:map";
+@use "sass:list";
+@use "sass:string";
+@use "sass:color";
+//google fonts imports
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+//sassy css variables declaration
+$themecolors: (
+  firstletter: #006400,
+  secondletter: hsl(26, 100%, 50%),
+  thirdcolor: rgb(5, 5, 5),
+);
+
+$themesizes: (
+  firstletter: 2.4em,
+  secondletter: 2.1em,
+  thirdcolor: 0.4em,
+);
+
+//Styles for this css page
+.init {
+  padding: "0px";
+  margin: "0px";
+  & .firstletter {
+    color: map.get($themecolors, secondletter);
+    @if map.has-key($themesizes, firstletter) {
+      font-size: map.get($themesizes, firstletter);
+    } @else {
+      font-size: 1.3em;
+    }
+    font-family: "Permanent Marker", cursive;
+    z-index: 1;
+  }
+  & .secondletter {
+    color: map.get($themecolors, firstletter);
+    @if map.has-key($themesizes, secondletter) {
+      font-size: map.get($themesizes, secondletter);
+    } @else {
+      font-size: 1.3em;
+    }
+    font-family: "Permanent Marker", cursive;
+    z-index: 2;
+    position: relative;
+    right: 13px;
+    top: 5px;
+    & .rofwords {
+      //font-weight: bold;
+      z-index: 3;
+      color: map.get($themecolors, thirdcolor);
+      @if map.has-key($themesizes, thirdcolor) {
+        font-size: map.get($themesizes, thirdcolor);
+      } @else {
+        font-size: 1.3em;
+      }
+    }
+  }
+}

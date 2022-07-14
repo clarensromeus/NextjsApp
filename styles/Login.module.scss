@@ -1,0 +1,31 @@
+//here is sassy css internal imports
+@use "sass:meta";
+@use "sass:math";
+@use "sass:string";
+@use "sass:map";
+//google fonts module imports
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,600&display=swap");
+//here is variables and functional concepts
+$listsofcolor: (
+  b: blue,
+  c: green,
+  d: orange,
+);
+
+//here is the main sassy css drawing
+.init {
+  //background-color: map.get($listsofcolor, b);
+  padding-left: 10px;
+  margin: 0px;
+  & .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .login {
+      font-size: 1.8em;
+      font-family: "Josefin Sans", sans-serif;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+//sassy css code we are going to type here
+
+.init {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  & .main {
+    display: block;
+    padding: 25px;
+    margin: 5px;
+    & .error {
+      font-size: small;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding-left: 40px;
+    }
+  }
+}
