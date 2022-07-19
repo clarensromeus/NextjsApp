@@ -29,6 +29,7 @@ import { grey, orange, green, red } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 //here have only internal imports call
 import SearchBarInput from "@/components/home/header/SearchBar";
+import Post from "@/components/home/main/Post";
 import Friends from "@/components/home/section/index";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
@@ -39,8 +40,6 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import SendIcon from "@mui/icons-material/Send";
 import EditIcon from "@mui/icons-material/Edit";
-import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
-import OndemandVideoRoundedIcon from "@mui/icons-material/OndemandVideoRounded";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
@@ -295,7 +294,14 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
                   <List>
                     <ListItem>
                       <ListItemAvatar>
-                        <StyledBadge>
+                        <StyledBadge
+                          overlap="circular"
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "right",
+                          }}
+                          variant="dot"
+                        >
                           <Avatar
                             alt="user image"
                             src="/images/static/nicky2.jpg"
@@ -430,15 +436,15 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
               </Box>
             </Grid>
             <Grid item>
-              <Box sx={{ width: 500, ml: 6 }}>
-                <Box>for the body</Box>
+              <Box ml={4}>
+                <Post name="romeus clarens" />
               </Box>
             </Grid>
             <Grid item>
               <Box
                 sx={{
                   width: 260,
-                  ml: 10,
+                  ml: 7,
                 }}
               >
                 <Friends name="romeus clarens" />
