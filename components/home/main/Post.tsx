@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NextPage as NP } from "next";
 import { Box, Typography, Button, Chip } from "@mui/material";
-import { grey, green, orange } from "@mui/material/colors";
+import { grey, blue } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import VideoCameraBackIcon from "@mui/icons-material/VideoCameraBack";
 import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
@@ -9,13 +9,12 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import { MakePost } from "@/components/home/customization/index";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -28,7 +27,7 @@ interface PostProps {
 }
 
 const Post: NP<PostProps> = ({ name }) => {
-  const handleClick = () => {
+  const handleClick = (event: React.SyntheticEvent) => {
     console.info("You clicked the Chip.");
     console.log("the event is", event);
   };
@@ -226,7 +225,7 @@ const Post: NP<PostProps> = ({ name }) => {
               </IconButton>
 
               <Chip
-                sx={{ bgcolor: `${orange[50]}`, ml: "auto" }}
+                sx={{ bgcolor: `${blue[50]}`, ml: "auto" }}
                 label={
                   <Typography fontWeight="bold" sx={{ fontFamily: "roboto" }}>
                     ...follow
@@ -234,6 +233,69 @@ const Post: NP<PostProps> = ({ name }) => {
                 }
                 onClick={handleClick}
               />
+            </CardActions>
+          </Card>
+        </Box>
+        <Box mt={2}>
+          <Card sx={{ maxWidth: 560 }} elevation={0}>
+            <CardHeader
+              avatar={
+                <Avatar
+                  sx={{ width: 54, height: 54 }}
+                  aria-label="user"
+                  alt="cardi-b"
+                  src="/images/static/cardib1.jpg"
+                />
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title={
+                <Typography
+                  fontWeight="bold"
+                  sx={{
+                    "& .user": {
+                      ml: 1,
+                      fontWeight: "normal",
+                      color: `${grey[500]}`,
+                    },
+                  }}
+                >
+                  cardi-b<span className="user">cardi-beauty01...</span>
+                </Typography>
+              }
+              subheader={
+                <Typography
+                  sx={{ color: `${grey[500]}` }}
+                  fontWeight="bold"
+                  fontSize="1em"
+                >
+                  cardi-b509@gmail.com
+                </Typography>
+              }
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              image="/images/static/cardi-b2.webp"
+              alt="cardi-b"
+            />
+            <CardContent sx={{}}>
+              <Typography fontWeight="bold">
+                if you like the picture i post and you want more as please my
+                one of my avid and crazy fan please leave a comment below to
+                tell me how you feel and like me in passing
+              </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+              <IconButton aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton aria-label="share">
+                <ShareIcon />
+              </IconButton>
             </CardActions>
           </Card>
         </Box>

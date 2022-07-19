@@ -15,7 +15,7 @@ import {
   Button,
   Badge,
 } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { grey, green, blue } from "@mui/material/colors";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import { styled } from "@mui/material/styles";
 import Tab from "@mui/material/Tab";
@@ -259,7 +259,7 @@ const Friends: NP<friends> = ({ name }) => {
       <Box pt={1}>Request</Box>
       <Box
         sx={{
-          pt: 1,
+          mt: 1,
           borderColor: `${grey[300]}`,
           borderWidth: 1,
           borderStyle: "solid",
@@ -272,23 +272,54 @@ const Friends: NP<friends> = ({ name }) => {
           {Request.map((val, ind) => {
             const { img, name, state } = val;
             return (
-              <ListItem key={ind}>
-                <ListItemAvatar>
-                  <Avatar alt={name} src={img} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={
+              <>
+                <Box
+                  mt={2}
+                  ml={2}
+                  sx={{ display: "flex", flexDirection: "row" }}
+                >
+                  <Box>
+                    <Avatar alt={name} src={img} sx={{}} />
+                  </Box>
+                  <Box ml={2} sx={{ display: "block" }}>
                     <Typography fontSize="0.7em" fontWeight="bold">
                       {name}
                     </Typography>
-                  }
-                  secondary={
                     <Typography fontSize="0.7em" sx={{ color: `${grey[600]}` }}>
                       {state}
                     </Typography>
-                  }
-                />
-              </ListItem>
+                    <Box sx={{ display: "inline", mt: "2px" }}>
+                      <Button
+                        color="success"
+                        variant="contained"
+                        sx={{ borderRadius: 12, boxShadow: 0 }}
+                      >
+                        <Typography
+                          fontSize="0.9em"
+                          sx={{ fontFamily: "roboto" }}
+                        >
+                          accept
+                        </Typography>
+                      </Button>
+                      <Button
+                        sx={{
+                          ml: 2,
+                          borderRadius: 12,
+                          bgcolor: `${blue[50]}`,
+                        }}
+                        variant="text"
+                      >
+                        <Typography
+                          fontSize="0.9em"
+                          sx={{ fontFamily: "roboto" }}
+                        >
+                          reject
+                        </Typography>
+                      </Button>
+                    </Box>
+                  </Box>
+                </Box>
+              </>
             );
           })}
         </List>
