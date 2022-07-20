@@ -37,7 +37,6 @@ import PeopleIcon from "@mui/icons-material/People";
 import GroupsIcon from "@mui/icons-material/Groups";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ChatIcon from "@mui/icons-material/Chat";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import SendIcon from "@mui/icons-material/Send";
 import EditIcon from "@mui/icons-material/Edit";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
@@ -280,11 +279,11 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
             <Grid item>
               <Box
                 sx={{
-                  width: "240px",
+                  width: "255px",
                   borderColor: `${grey[300]}`,
                   borderWidth: 1,
                   borderStyle: "solid",
-                  ml: 10,
+                  ml: 9,
                   borderTopLeftRadius: 12,
                   borderBottomRightRadius: 14,
                   bgcolor: "white",
@@ -332,8 +331,8 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
               <Box
                 sx={{
                   mt: 1,
-                  ml: 10,
-                  width: 240,
+                  ml: 9,
+                  width: 255,
                   borderStyle: "solid",
                   borderWidth: 1,
                   borderColor: `${grey[300]}`,
@@ -405,33 +404,29 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
               <Box
                 sx={{
                   mt: 1,
-                  ml: 10,
-                  width: 240,
-                  borderStyle: "solid",
-                  borderWidth: 1,
-                  borderColor: `${grey[300]}`,
+                  ml: 9,
+                  width: 255,
                   bgcolor: "white",
                 }}
               >
-                <Box sx={{ p: 1 }}>
+                <Box sx={{ mb: 6 }}>
                   <Button
                     variant="contained"
                     sx={{
-                      bgcolor: "green",
                       TextTransform: "capitalize",
                       fontWeigth: "bold",
                       borderRadius: 100,
+                      boxShadow: 0,
+                      p: 2,
+                      bgcolor: "green",
                       fontFamily: "Roboto",
                       "&:hover": {
                         bgcolor: "green",
                       },
                     }}
                   >
-                    See trusted sponsors
+                    see trusted sponsors
                   </Button>
-                </Box>
-                <Box>
-                  <List></List>
                 </Box>
               </Box>
             </Grid>
@@ -444,7 +439,7 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
               <Box
                 sx={{
                   width: 260,
-                  ml: 7,
+                  ml: 4,
                 }}
               >
                 <Friends name="romeus clarens" />

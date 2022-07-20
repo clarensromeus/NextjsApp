@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NextPage as NP } from "next";
-import { Box, Typography, Button, Chip } from "@mui/material";
-import { grey, blue } from "@mui/material/colors";
+import { Box, Typography, Button, Chip, Stack } from "@mui/material";
+import { grey, blue, orange, green } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import VideoCameraBackIcon from "@mui/icons-material/VideoCameraBack";
 import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
@@ -9,6 +9,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import { MakePost } from "@/components/home/customization/index";
+import AvatarGroup from "@mui/material/AvatarGroup";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -18,9 +19,14 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import SportsBasketballOutlinedIcon from "@mui/icons-material/SportsBasketballOutlined";
+import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
+import SkateboardingOutlinedIcon from "@mui/icons-material/SkateboardingOutlined";
+import SportsRugbyOutlinedIcon from "@mui/icons-material/SportsRugbyOutlined";
 
 interface PostProps {
   name: string;
@@ -214,9 +220,6 @@ const Post: NP<PostProps> = ({ name }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <IconButton aria-label="add to favorites">
-                <ThumbUpOutlinedIcon />
-              </IconButton>
               <IconButton aria-label="share">
                 <FavoriteBorderOutlinedIcon />
               </IconButton>
@@ -237,6 +240,162 @@ const Post: NP<PostProps> = ({ name }) => {
           </Card>
         </Box>
         <Box mt={2}>
+          <Card sx={{ maxWidth: 560 }} elevation={0}>
+            <CardHeader
+              avatar={
+                <Avatar
+                  sx={{ width: 54, height: 54 }}
+                  aria-label="user"
+                  alt="c. ronaldo"
+                  src="/images/static/cr7.jpg"
+                />
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title={
+                <Typography
+                  fontWeight="bold"
+                  sx={{
+                    "& .user": {
+                      ml: 1,
+                      fontWeight: "normal",
+                      color: `${grey[600]}`,
+                    },
+                  }}
+                >
+                  c.ronaldo<span className="user">cr7-worldstar...</span>
+                </Typography>
+              }
+              subheader={
+                <Typography
+                  sx={{ color: `${grey[500]}` }}
+                  fontWeight="bold"
+                  fontSize="1em"
+                >
+                  c.ronaldo07@gmail.com
+                </Typography>
+              }
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              image="/images/static/cr7-2.jpg"
+              alt="cr7"
+            />
+            <CardContent sx={{}}>
+              <Box>
+                <Typography fontWeight="bold" sx={{}}>
+                  if you like the picture i post and you want more please as my
+                  one of my avid and crazy fan please leave a comment below to
+                  tell me how you feel and like me in passing
+                </Typography>
+              </Box>
+              <Box mt={2}>
+                <AvatarGroup sx={{ mr: "214px" }}>
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="fantom"
+                    src="/images/static/fantom.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="cristiano"
+                    src="/images/static/cr7.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="neymar"
+                    src="/images/static/neymar-2.jpg"
+                  />
+                  <Typography
+                    mr={1}
+                    mt="2px"
+                    fontWeight="bold"
+                    fontSize="0.9em"
+                  >
+                    like by fantom and 20 other people...
+                  </Typography>
+                </AvatarGroup>
+              </Box>
+            </CardContent>
+            <Divider />
+            <CardActions sx={{ display: "flex", flexDirection: "row" }}>
+              <Box sx={{ flexGrow: 1 }}>
+                <Box component="span" sx={{}}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${blue[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ThumbUpOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .like": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      1.1k<span className="like">likes</span>
+                    </Typography>
+                  </Button>
+                </Box>
+                <Box component="span" ml={1}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${green[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ChatOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .comment": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      210<span className="comment">comments</span>
+                    </Typography>
+                  </Button>
+                </Box>
+              </Box>
+              <Box sx={{}}>
+                <IconButton aria-label="share">
+                  <ShareIcon sx={{ color: `${grey[900]}` }} />
+                </IconButton>
+              </Box>
+            </CardActions>
+          </Card>
+        </Box>
+        <Box mt={1}>
+          <Typography fontWeight="bold" fontSize="2.1em" fontFamily="monospace">
+            Choose a topic
+          </Typography>
+        </Box>
+        <Box ml={3} mt={1}>
+          <Stack spacing={2} direction="row">
+            <Box>first topic</Box>
+            <Box> the image</Box>
+            <Box>second topic</Box>
+          </Stack>
+        </Box>
+        <Box mt={1}>
           <Card sx={{ maxWidth: 560 }} elevation={0}>
             <CardHeader
               avatar={
@@ -283,19 +442,243 @@ const Post: NP<PostProps> = ({ name }) => {
               alt="cardi-b"
             />
             <CardContent sx={{}}>
-              <Typography fontWeight="bold">
-                if you like the picture i post and you want more as please my
-                one of my avid and crazy fan please leave a comment below to
-                tell me how you feel and like me in passing
-              </Typography>
+              <Box>
+                <Typography fontWeight="bold" sx={{}}>
+                  if you like the picture i post and you want more please as my
+                  one of my avid and crazy fan please leave a comment below to
+                  tell me how you feel and like me in passing
+                </Typography>
+              </Box>
+              <Box mt={2}>
+                <AvatarGroup sx={{ mr: "214px" }}>
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="fantom"
+                    src="/images/static/fantom.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="cristiano"
+                    src="/images/static/cr7.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="neymar"
+                    src="/images/static/neymar-2.jpg"
+                  />
+                  <Typography
+                    mr={1}
+                    mt="2px"
+                    fontWeight="bold"
+                    fontSize="0.9em"
+                  >
+                    like by fantom and 20 other people...
+                  </Typography>
+                </AvatarGroup>
+              </Box>
             </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
+            <Divider />
+            <CardActions sx={{ display: "flex", flexDirection: "row" }}>
+              <Box sx={{ flexGrow: 1 }}>
+                <Box component="span" sx={{}}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${blue[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ThumbUpOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .like": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      455<span className="like">likes</span>
+                    </Typography>
+                  </Button>
+                </Box>
+                <Box component="span" ml={1}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${green[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ChatOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .comment": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      90<span className="comment">comments</span>
+                    </Typography>
+                  </Button>
+                </Box>
+              </Box>
+              <Box sx={{}}>
+                <IconButton aria-label="share">
+                  <ShareIcon sx={{ color: `${grey[900]}` }} />
+                </IconButton>
+              </Box>
+            </CardActions>
+          </Card>
+        </Box>
+        <Box>
+          <Card sx={{ maxWidth: 560 }} elevation={0}>
+            <CardHeader
+              avatar={
+                <Avatar
+                  sx={{ width: 54, height: 54 }}
+                  aria-label="user"
+                  alt="neymar"
+                  src="/images/static/neymar-2.jpg"
+                />
+              }
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title={
+                <Typography
+                  fontWeight="bold"
+                  sx={{
+                    "& .user": {
+                      ml: 1,
+                      fontWeight: "normal",
+                      color: `${grey[500]}`,
+                    },
+                  }}
+                >
+                  neymar<span className="user">neymar10junior</span>
+                </Typography>
+              }
+              subheader={
+                <Typography
+                  sx={{ color: `${grey[500]}` }}
+                  fontWeight="bold"
+                  fontSize="1em"
+                >
+                  neymarjunior10@gmail.com
+                </Typography>
+              }
+            />
+            <CardMedia
+              component="img"
+              height="194"
+              image="/images/static/neymar-jr.webp"
+              alt="neymar"
+            />
+            <CardContent sx={{}}>
+              <Box>
+                <Typography fontWeight="bold" sx={{}}>
+                  one of the best star of the world and we all know already know
+                  that thanks for supporting me all fans
+                </Typography>
+              </Box>
+              <Box mt={2}>
+                <AvatarGroup sx={{ mr: "214px" }}>
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="fantom"
+                    src="/images/static/fantom.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="cristiano"
+                    src="/images/static/cr7.jpg"
+                  />
+                  <Avatar
+                    sx={{ width: 20, height: 20 }}
+                    alt="neymar"
+                    src="/images/static/neymar-2.jpg"
+                  />
+                  <Typography
+                    mr={1}
+                    mt="2px"
+                    fontWeight="bold"
+                    fontSize="0.9em"
+                  >
+                    like by fantom and 20 other people...
+                  </Typography>
+                </AvatarGroup>
+              </Box>
+            </CardContent>
+            <Divider />
+            <CardActions sx={{ display: "flex", flexDirection: "row" }}>
+              <Box sx={{ flexGrow: 1 }}>
+                <Box component="span" sx={{}}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${blue[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ThumbUpOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .like": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      2k<span className="like">likes</span>
+                    </Typography>
+                  </Button>
+                </Box>
+                <Box component="span" ml={1}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      borderRadius: 12,
+                      bgcolor: `${green[50]}`,
+                      color: `${grey[900]}`,
+                    }}
+                    startIcon={<ChatOutlinedIcon />}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontSize="0.8em"
+                      sx={{
+                        "& .comment": {
+                          ml: "2px",
+                          textTransform: "lowercase",
+                          fontFamily: "roboto",
+                        },
+                      }}
+                    >
+                      1k<span className="comment">comments</span>
+                    </Typography>
+                  </Button>
+                </Box>
+              </Box>
+              <Box sx={{}}>
+                <IconButton aria-label="share">
+                  <ShareIcon sx={{ color: `${grey[900]}` }} />
+                </IconButton>
+              </Box>
             </CardActions>
           </Card>
         </Box>
