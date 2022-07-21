@@ -5,6 +5,7 @@ import { grey, blue, orange, green } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import VideoCameraBackIcon from "@mui/icons-material/VideoCameraBack";
 import PhotoSizeSelectActualIcon from "@mui/icons-material/PhotoSizeSelectActual";
+import InputAdornment from "@mui/material/InputAdornment";
 import DescriptionIcon from "@mui/icons-material/Description";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
@@ -32,10 +33,34 @@ interface PostProps {
   name: string;
 }
 
+type SendMessage = boolean;
+
 const Post: NP<PostProps> = ({ name }) => {
+  const [visible, setvisible] = React.useState<SendMessage>(false);
+  const [value, setValue] = React.useState({ post: "" });
+
+  React.useEffect(() => {
+    console.log();
+    if (value.post !== "" && value.post.length > 0) {
+      setvisible(true);
+      console.log("i am ready");
+    } else {
+      setvisible(false);
+      console.log("not ready");
+    }
+  }, [value.post]);
+
+  console.log(visible);
+
   const handleClick = (event: React.SyntheticEvent) => {
     console.info("You clicked the Chip.");
     console.log("the event is", event);
+  };
+
+  const changeEventPost = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault;
+    const val = event.target.value;
+    setValue({ post: val });
   };
 
   return (
@@ -72,7 +97,19 @@ const Post: NP<PostProps> = ({ name }) => {
               ml={2}
               sx={{ width: 436, display: "flex", flexDirection: "column" }}
             >
-              <MakePost placeholder="Create a post" fullWidth size="medium" />
+              <MakePost
+                placeholder="Create a post"
+                fullWidth
+                size="medium"
+                onChange={changeEventPost}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end" sx={{ cursor: "pointer" }}>
+                      {visible && <SendIcon />}
+                    </InputAdornment>
+                  ),
+                }}
+              />
               <Box
                 mt={1}
                 sx={{
@@ -221,16 +258,19 @@ const Post: NP<PostProps> = ({ name }) => {
             </CardContent>
             <CardActions>
               <IconButton aria-label="share">
-                <FavoriteBorderOutlinedIcon />
+                <FavoriteBorderOutlinedIcon sx={{ color: `${grey[800]}` }} />
               </IconButton>
               <IconButton aria-label="share">
-                <ShareIcon />
+                <ShareIcon sx={{ color: `${grey[800]}` }} />
               </IconButton>
 
               <Chip
                 sx={{ bgcolor: `${blue[50]}`, ml: "auto" }}
                 label={
-                  <Typography fontWeight="bold" sx={{ fontFamily: "roboto" }}>
+                  <Typography
+                    fontWeight="bold"
+                    sx={{ fontFamily: "roboto", color: "green" }}
+                  >
                     ...follow
                   </Typography>
                 }
@@ -539,7 +579,7 @@ const Post: NP<PostProps> = ({ name }) => {
             </CardActions>
           </Card>
         </Box>
-        <Box>
+        <Box mt={1}>
           <Card sx={{ maxWidth: 560 }} elevation={0}>
             <CardHeader
               avatar={

@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 const CssTextField = styled(TextField)({
   "& .MuiInput-underline:after": {},
@@ -30,6 +30,9 @@ const SearchInputFriends = styled(TextField)({
       borderRadius: 20,
       color: "white",
     },
+    "& .MuiOutlinedInput-root:hover": {
+      borderColor: `${grey[600]}`,
+    },
     "&.Mui-focused fieldset": {
       borderWidth: 0,
       borderRadius: 20,
@@ -41,15 +44,16 @@ const SearchInputFriends = styled(TextField)({
 const MakePost = styled(TextField)({
   "& .MuiInput-underline:after": {},
   "& .MuiOutlinedInput-root": {
+    borderColor: `${grey[400]}`,
     "& fieldset": {
       borderWidth: 1,
-      borderColor: "dark",
+      borderColor: `${grey[400]}`,
       borderRadius: 32,
     },
     "&.Mui-focused fieldset": {
       borderWidth: 1,
       borderRadius: 32,
-      BorderColor: "dark",
+      borderColor: `${grey[400]}`,
     },
   },
 });

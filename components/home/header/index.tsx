@@ -29,6 +29,7 @@ import { grey, orange, green, red } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 //here have only internal imports call
 import SearchBarInput from "@/components/home/header/SearchBar";
+import AppLogo from "@/components/logo/logoApp/";
 import Post from "@/components/home/main/Post";
 import Friends from "@/components/home/section/index";
 import HomeIcon from "@mui/icons-material/Home";
@@ -164,15 +165,7 @@ const HeaderBar: NP<HeaderBarProps> = (props) => {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="fixed" sx={{ bgcolor: "darkOrange" }} elevation={0}>
             <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-              >
-                <MenuIcon />
-              </IconButton>
+              <AppLogo />
               <Box sx={{ flexGrow: 1 }}>
                 <SearchBarInput />
               </Box>
